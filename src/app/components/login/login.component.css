@@ -34,6 +34,7 @@ img{
 
 button{
     margin-top: 1.5rem;
+    border-radius: 1rem;
 }
 
 button:hover{
@@ -43,6 +44,8 @@ button:hover{
 }
 
 button:hover:disabled{
-    color: black;
-    background: rgba(255, 255, 255);
+    color: Gray;
+    font-weight: 150;
+    font-size: 0.9rem;
+    background: white;
 }
