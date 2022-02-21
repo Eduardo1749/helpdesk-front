@@ -1,12 +1,12 @@
-.container{
+.container {
     height: 100%;
-    background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(37,97,207,1) 0%, rgba(0,212,255,1) 100%);
+    background: linear-gradient(180deg, rgba(2, 0, 36, 1) 0%, rgba(37, 97, 207, 1) 0%, rgba(0, 212, 255, 1) 100%);
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.form{
+.form {
     width: 30rem;
     margin: auto;
     background-color: rgba(255, 255, 255, 0.904);
@@ -14,7 +14,7 @@
     border-radius: 2rem;
 }
 
-h1{
+h1 {
     width: 100%;
     color: rgb(11, 11, 77);
     text-align: center;
@@ -22,28 +22,28 @@ h1{
     font-style: italic;
 }
 
-img{
+img {
     height: 11rem;
     width: 100%;
     margin: 1.5rem auto 1.5rem auto;
 }
 
-.full-width{
+.full-width {
     width: 100%;
 }
 
-button{
+button {
     margin-top: 1.5rem;
     border-radius: 1rem;
 }
 
-button:hover{
+button:hover {
     color: white;
     font-size: 1.2rem;
-    background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(37,97,207,1) 0%, rgba(0,212,255,1) 100%);
+    background: linear-gradient(180deg, rgba(2, 0, 36, 1) 0%, rgba(37, 97, 207, 1) 0%, rgba(0, 212, 255, 1) 100%);
 }
 
-button:hover:disabled{
+button:hover:disabled {
     color: Gray;
     font-weight: 150;
     font-size: 0.9rem;
