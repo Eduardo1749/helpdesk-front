@@ -34,6 +34,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { TecnicoListComponent } from './components/tecnico/tecnico-list/tecnico-list.component';
 import { LoginComponent } from './components/login/login.component';
 import { ToastrModule } from 'ngx-toastr';
+import { AuthInterceptorProvider } from './interceptors/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -75,8 +76,7 @@ import { ToastrModule } from 'ngx-toastr';
     }),
     //   NgxMaskModule.forRoot()
   ],
-  // AuthInterceptorProvider -- é oq vai no [] de baixo
-  providers: [],
+  providers: [AuthInterceptorProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
