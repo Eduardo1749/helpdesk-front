@@ -6,40 +6,47 @@
         <img src="assets/img/tecnico-create.svg" class="fullWidth" alt="Imagem tecnico-create">
 
         <section class="section">
-            <mat-checkbox class="margin">Admin</mat-checkbox>
-            <mat-checkbox class="margin">Cliente</mat-checkbox>
-            <mat-checkbox class="margin">Técnico</mat-checkbox>
+            <mat-checkbox (click)="addPerfil(0)" class="margin" color="primary">Admin</mat-checkbox>
+            <mat-checkbox (click)="addPerfil(1)" class="margin" color="primary">Cliente</mat-checkbox>
+            <mat-checkbox (click)="addPerfil(2)" class="margin" color="primary">Técnico</mat-checkbox>
         </section>
 
         <mat-form-field appearance="legacy" class="fullWidth">
             <mat-label>Nome</mat-label>
-            <input matInput placeholder="Ex.. Eduardo">
+            <input [(ngModel)]="tecnico.nome" name="nome" [formControl]="nome" required matInput placeholder="Ex.. Eduardo" maxlength="50">
             <mat-icon matSuffix>perm_identity</mat-icon>
         </mat-form-field>
 
         <mat-form-field appearance="legacy" class="fullWidth">
             <mat-label>CPF</mat-label>
-            <input matInput placeholder="Ex.. 000.000.000-00">
+            <!--Required: Significa que esse campo deverá ser preenchido, 
+                Placeholder: Serve para mostrar como esse campo deve ser preenchido(apenas um exemplo), 
+                [formControl]: Serve para passar os valores que for passado nesse input para o atributo especifico no TS, fazendo assim a validação dos campos,
+                mask: Serve para deixar uma mascara, deixar formatado de uma forma padrão
+             -->
+            <input [(ngModel)]="tecnico.cpf" name="cpf" [formControl]="cpf" required matInput placeholder="Ex.. 000.000.000-00" mask="000.000.000-00">
             <mat-icon matSuffix>pin</mat-icon>
         </mat-form-field>
 
         <mat-form-field appearance="legacy" class="fullWidth">
             <mat-label>E-mail</mat-label>
-            <input matInput placeholder="Ex.. Eduardo@mail.com">
+            <input [(ngModel)]="tecnico.email" name="email" [formControl]="email" required matInput placeholder="Ex.. Eduardo@mail.com">
             <mat-icon matSuffix>mail_outline</mat-icon>
         </mat-form-field>
 
         <mat-form-field appearance="legacy" class="fullWidth">
             <mat-label>Senha</mat-label>
-            <input type="password" matInput placeholder="Ex.. 1234">
+            <input [(ngModel)]="tecnico.senha" name="senha" [formControl]="senha" required type="password" matInput placeholder="Ex.. 1234">
             <mat-icon matSuffix>password</mat-icon>
         </mat-form-field>
 
-        <button mat-flat-button color="primary" class="fullWidth mat-elevation-z5">Cadastrar</button>
-        <button mat-stroked-button color="warn" class="fullWidth mat-elevation-z5">Cancelar</button>
+
+        <button (click)="create()" [disabled]="!validaCampos()" mat-flat-button color="primary" class="fullWidth mat-elevation-z5">Cadastrar</button>
+        <!--routerLink: O que deve acontecer quando o button for clicado(no meu caso irá para a rota anterior)-->
+        <button routerLink="../" mat-stroked-button color="warn" class="fullWidth mat-elevation-z5">Cancelar</button>
 
     </form>
 
-    <p>By Eduardo Santos</p>
+    <p class="fullWidth">By Eduardo Santos</p>
 
 </div>
