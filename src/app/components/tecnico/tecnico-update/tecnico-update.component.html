@@ -2,7 +2,7 @@
 
     <form class="form">
 
-        <h1 class="fullWidth">Cadastrar Técnico</h1>
+        <h1 class="fullWidth">Atualizar Técnico</h1>
         <img src="assets/img/tecnico-create.svg" class="fullWidth" alt="Imagem tecnico-create">
 
         <section class="section">
@@ -41,9 +41,9 @@
         </mat-form-field>
 
 
-        <button (click)="create()" [disabled]="!validaCampos()" mat-flat-button color="primary" class="fullWidth mat-elevation-z5">Cadastrar</button>
+        <button (click)="update()" [disabled]="!validaCampos()" mat-flat-button color="primary" class="fullWidth mat-elevation-z5">Atualizar</button>
         <!--routerLink: O que deve acontecer quando o button for clicado(no meu caso irá para a rota anterior)-->
-        <button routerLink="../" mat-stroked-button color="warn" class="fullWidth mat-elevation-z5">Cancelar</button>
+        <button routerLink="../../" mat-stroked-button color="warn" class="fullWidth mat-elevation-z5">Cancelar</button>
 
     </form>
 
