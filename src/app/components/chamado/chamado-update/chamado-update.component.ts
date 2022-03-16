@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Chamado } from 'src/app/models/chamado';
 import { Cliente } from 'src/app/models/cliente';
@@ -45,17 +45,28 @@ export class ChamadoUpdateComponent implements OnInit {
     private tecnicoService: TecnicoService,
     private toastService:    ToastrService,
     private router:                 Router,
+    private route:          ActivatedRoute,
   ) {}
 
   // Esse método será executado assim que a página for carregada
   ngOnInit(): void {
+    this.chamado.id = this.route.snapshot.paramMap.get('id');
+    this.findById();
     this.findAllClientes();
     this.findAllTecnicos();
   }
 
-  create(): void{
-    this.chamadoService.create(this.chamado).subscribe(resposta => {
-      this.toastService.success('Chamado criado com sucesso', 'Novo chamado');
+  findById(): void{
+    this.chamadoService.findById(this.chamado.id).subscribe(resposta => {
+      this.chamado = resposta;
+    }, ex => {
+      this.toastService.error(ex.error.error);
+    })
+  }
+
+  update(): void{
+    this.chamadoService.update(this.chamado).subscribe(resposta => {
+      this.toastService.success('Chamado atualizado com sucesso', 'Chamado atualizado');
       this.router.navigate(['chamados']);
     }, ex => {
       this.toastService.error(ex.error.error);
@@ -80,6 +91,28 @@ export class ChamadoUpdateComponent implements OnInit {
   validaCampos(): boolean {
     return this.prioridade.valid && this.status.valid && this.titulo.valid 
        && this.observacoes.valid && this.tecnico.valid && this.cliente.valid
+  }
+
+  // Esse método não está legal pois tem valores literais o que não é muito legal
+  retornaStatus(status: any): string{
+    if(status == '0'){
+      return 'Aberto'
+    }else if(status == '1'){
+      return 'Em andamento'
+    }else{
+      return 'Encerrado'
+    }
+  }
+
+  // Esse método não está legal pois tem valores literais o que não é muito legal
+  retornaPrioridade(prioridade: any): string{
+    if(prioridade == '0'){
+      return 'Baixa'
+    }else if(prioridade == '1'){
+      return 'Média'
+    }else{
+      return 'Alta'
+    }
   }
 
 }
