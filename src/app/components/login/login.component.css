@@ -49,3 +49,7 @@ button:hover:disabled {
     font-size: 0.9rem;
     background: white;
 }
+
+mat-icon {
+    opacity: .6;
+}
